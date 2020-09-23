@@ -19,7 +19,10 @@ def initVec(k):
         numer2=c0Val-np.sqrt(b0Val**2+c0Val**2)
         return np.array([numer1/denom,numer2/denom])
     else:
-        return np.array([0,1])
+        if c0Val>0:
+            return np.array([1,0])
+        else:
+            return np.array([0,1])
 def b1(k):
     return 2*d1*np.sin(k*dk)
 def c1(k):
@@ -30,8 +33,8 @@ def H1(k):
     c1Val=c1(k)
     h1Val=np.zeros((2,2),dtype=complex)
     h1Val[0,0]=-c1Val
-    h1Val[0,1]=-1j*b1Val
-    h1Val[1,0]=1j*b1Val
+    h1Val[0,1]=1j*b1Val
+    h1Val[1,0]=-1j*b1Val
     h1Val[1,1]=c1Val
     return h1Val
 #calculate all y0k s
@@ -98,7 +101,7 @@ for q in range(0,Q+1):
 
 for q in range(0,Q+1):
     tmp=0.0
-    for k in range(0,int(N/2-1)):
+    for k in range(0,int(N/2)):
         tmp+=beta[q][k]
     tmp/=2*np.pi
 

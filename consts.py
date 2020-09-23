@@ -1,7 +1,7 @@
 import numpy as np
 
 #fermion number
-N=100
+N=500
 #k=0,1,...,N-1
 kIndAll=range(0,N)
 dk=2*np.pi/N
@@ -17,12 +17,12 @@ t1=t0
 d1=d0
 
 #time step number
-Q=200
+Q=600
 
 #time step
 ds=0.05
 
 tol=1e-15
 
-cutOff=1.2
+cutOff=0.8
 threadNum=12
